@@ -4,17 +4,20 @@ import render from 'ff-core/render'
 
 import snabbPik from './index.js'
 
+const format = 'MM / DD / YYYY'
+
 const view = () =>
   h('div', [
-    h('section'
+    h('h2', 'snabbdom pikaday')
+  , h('section'
     , [
-        h('p', 'Start Date')
-      , snabbPik({attrs: {name: 'start'}}, {minDate: new Date(), format: 'Do MMMM YYYY'})
+        h('p', 'start date')
+      , snabbPik({attrs: {name: 'start'}}, {minDate: new Date(), format})
     ])
   , h('section'
     , [
-        h('p', 'End Date')
-      , snabbPik({attrs: {name: 'start'}}, {minDate: new Date(), format: 'Do MMMM YYYY'})
+        h('p', 'end date')
+      , snabbPik({attrs: {name: 'start'}}, {minDate: new Date(), format})
     ])
   ])
 
