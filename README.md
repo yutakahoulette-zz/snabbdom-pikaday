@@ -22,7 +22,5 @@ const form = () => h('form'
 )
 ```
 
-Demo: yutakahoulette.github.io/snabbdom-demo
-
-Bonus: a more minimal and modern stylesheet for pikaday (used in demo).
+Demo: http://yutakahoulette.com/snabbdom-pikaday/
 
