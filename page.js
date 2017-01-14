@@ -2,12 +2,20 @@ import snabbdom from 'snabbdom'
 import h from 'snabbdom/h'
 import render from 'ff-core/render'
 
-import ffPikaday from './index.js'
+import snabbPik from './index.js'
 
 const view = () =>
   h('div', [
-    ffPikaday({attrs: {name: 'start'}}, {format: 'Do MMMM YYYY'})
-  , ffPikaday({attrs: {name: 'end'}}, {format: 'Do MMMM YYYY'})
+    h('section'
+    , [
+        h('p', 'Start Date')
+      , snabbPik({attrs: {name: 'start'}}, {minDate: new Date(), format: 'Do MMMM YYYY'})
+    ])
+  , h('section'
+    , [
+        h('p', 'End Date')
+      , snabbPik({attrs: {name: 'start'}}, {minDate: new Date(), format: 'Do MMMM YYYY'})
+    ])
   ])
 
 const patch = snabbdom.init([
@@ -15,7 +23,6 @@ const patch = snabbdom.init([
 ])
 
 const container = document.querySelector('#container')
-
 
 render({container, state: {}, view, patch})
 

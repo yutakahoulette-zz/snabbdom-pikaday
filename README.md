@@ -1,19 +1,28 @@
-# flimflam template
+# snabbdom-pikaday
 
-This is a template codebase that has the basic packages and blank files for initially creating a new flimflam component.
+Simple snabbdom wrapper for pikaday.
 
-The code for your component should go in index.js.
-Any CSS that is necessary for you component should go in index.css.
+Returns a function that takes two arguments:
+1. the snabbdom data object that gets set into an input element
+2. the config object for pikaday
 
-The code for rendering your component for the demo (docs) should go in page.js.
-Any CSS for your demo should go in page.css.
+Example:
 
-To run the demo with live-reload, run `npm run budo`.
-To watch your css, run `npm run postcss`.
+```es6
+import snabbPik from 'snabbdom-pikaday'
 
-To build your demo, run `npm run build-docs`.
+const form = () => h('form'
+, [
+    h('label', 'Start Date')
+  , snabbPik(
+      {attrs: {name: 'start'}}
+    , {minDate: new Date(), format: 'Do MMMM YYYY'}
+    )
+  ]
+)
+```
 
-To babelify your index.js, run `npm run babel`
+Bonus!
 
-
+Includes a more minimal and modern stylesheet for pikaday (used in demo).
 

@@ -1,20 +1,12 @@
-var assert = require('assert')
-var R = require("ramda")
-var flyd = require("flyd")
-var render = require('ff-core/render')
-var h = require('snabbdom/h').default
-var snabbdom =require('snabbdom')
+const h = require('snabbdom/h').default
+const test = require('tape')
 
-var patch = snabbdom.init([ 
-  require('snabbdom/modules/class').default 
-, require('snabbdom/modules/props').default
-, require('snabbdom/modules/style').default
-, require('snabbdom/modules/eventlisteners').default 
-])
+const pik = require('../index.js')
 
-suite('test-suite-name')
-
-test('does something cool', () => {
-  assert.equal('cool', 'cool')
+test('sets the data object into the snabbdom element', t => {
+  t.plan(1)
+  let p = pik({props: {name: 'country'}}, {})
+  t.equal(p.data.props.name, 'country')
 })
+
 

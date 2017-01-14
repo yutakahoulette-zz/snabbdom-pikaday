@@ -1,25 +1,23 @@
 {
-  "name": "asdf",
+  "name": "snabbdom-pikaday",
   "version": "0.0.1",
-  "description": "",
+  "description": "Simple snabbdom wrapper for pikaday",
   "main": "build.js",
   "style": "index.css",
   "scripts": {
-    "test": "zuul --local -- test/index.js",
+    "test": "browserify -t babelify -t cssify test/index.js | tape-run | tap-spec || true",
     "budo": "budo page.js --live -- -t babelify",
     "postcss": "postcss -c postcss.js -w -l",
     "babel": "babel index.js -o build.js",
     "build-docs": "./build-docs.sh"
   },
-  "author": "asdf",
+  "author": "Yutaka Houlette",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asdf/asdf.git"
+    "url": "git+https://github.com/yutakahoulette/snabbdom-pikaday.git"
   },
   "license": "MIT",
   "dependencies": {
-    "ff-core": "0.0.4",
-    "flyd": "0.2.2",
     "pikaday": "^1.5.1",
     "ramda": "0.23.0",
     "snabbdom": "0.6.1"
@@ -33,22 +31,22 @@
     "budo": "9.4.1",
     "cssify": "^1.0.3",
     "cssnano": "^3.10.0",
-    "mocha": "^3.2.0",
+    "ff-core": "0.0.4",
+    "flyd": "0.2.2",
     "normalize.css": "^5.0.0",
     "postcss": "5.2.9",
     "postcss-cli": "2.6.0",
     "postcss-import": "9.1.0",
-    "zuul": "^3.11.1"
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.3",
+    "tape-run": "^2.1.5"
   },
   "keywords": [
-    "flimflam",
-    "flyd",
     "snabbdom",
-    "functional",
-    "ui"
+    "pikaday"
   ],
   "bugs": {
-    "url": "https://github.com/asdf/asdf/issues"
+    "url": "https://github.com/yutakahoulette/snabbdom-pikaday/issues"
   },
-  "homepage": "https://github.com/asdf/asdf#readme"
+  "homepage": "https://github.com/yutakahoulette/snabbdom-pikaday#readme"
 }
