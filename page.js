@@ -4,7 +4,7 @@ import render from 'ff-core/render'
 
 import snabbPik from './index.js'
 
-const format = 'MM / DD / YYYY'
+const format = 'MM/DD/YYYY'
 
 const view = () =>
   h('div', [
@@ -23,6 +23,9 @@ const view = () =>
 
 const patch = snabbdom.init([
   require("snabbdom/modules/attributes").default
+, require("snabbdom/modules/props").default
+, require("snabbdom/modules/style").default
+, require("snabbdom/modules/eventlisteners").default
 ])
 
 const container = document.querySelector('#container')
