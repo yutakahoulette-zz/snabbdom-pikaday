@@ -3,8 +3,8 @@
 Simple snabbdom wrapper for pikaday.
 
 Returns a function that takes two arguments:
-1. the snabbdom data object that gets set into an input element
-2. the config object for pikaday
+- the snabbdom data object that gets set into an input element
+- the config object for pikaday
 
 Example:
 
@@ -22,7 +22,5 @@ const form = () => h('form'
 )
 ```
 
-Bonus!
-
-Includes a more minimal and modern stylesheet for pikaday (used in demo).
+Demo: http://yutakahoulette.com/snabbdom-pikaday/
 
