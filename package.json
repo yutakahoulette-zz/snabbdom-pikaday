@@ -1,7 +1,7 @@
 {
   "name": "snabbdom-pikaday",
-  "version": "0.0.1",
-  "description": "Simple snabbdom wrapper for pikaday",
+  "version": "0.0.2",
+  "description": "Mobile friendly snabbdom wrapper for pikaday",
   "main": "build.js",
   "style": "index.css",
   "scripts": {

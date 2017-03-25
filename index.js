@@ -23,10 +23,16 @@ const bindPik = config => vnode => {
   new p(config)
 }
 
-const setDate = format => ev => {
-  let date = m(ev.target.value).format(format || 'MM/DD/YYYY')
-  let visibleInput = ev.target.parentElement.querySelectorAll('input')[0]
-  visibleInput.value = date
+const setDate = config => ev => {
+  const val = ev.target.value
+  const min = config.minDate ? m(config.minDate) : m()
+  const date = m(val)._isValid
+    ? m(val)
+    : min 
+ 
+  const formattedDate = date.format(config.format || 'MM/DD/YYYY')
+  const visibleInput = ev.target.parentElement.querySelectorAll('input')[0]
+  visibleInput.value = formattedDate
 }
 
 const minMax = minMax => minMax ? m(minMax).format('YYYY-MM-DD') : ''
@@ -40,21 +46,31 @@ const mobileVersion = (data, config) =>
       , max: minMax(config.maxDate) 
       , min: minMax(config.minDate) 
       }
+    , hook: {insert: (vnode) => {
+          const el = vnode.elm
+          const parentWidth = el.parentElement.offsetWidth
+          el.style.width = parentWidth + 'px'
+        }
+      }
     , style: {
-        opacity: 0
+        opacity: '0'
       , position: 'absolute'
-      , left: 0
-      , top: 0
+      , left: '0px'
+      , top: '0px'
       , width: '100%'
       , height: '100%'
       }
-    , on: {input: setDate(config.format)}
+    , on: {input: setDate(config)}
     })
   ])
 
 module.exports = (data, config) => {
   if(supportsDateInput() && supportsTouch()) return mobileVersion(data, config)
-  data = merge(data || {}, {hook: {insert: bindPik(config)}})
+
+  data = merge(data || {}, {
+    attrs: {readonly: true}
+  , hook: {insert: bindPik(config)}
+  })
   return h('input', data)
 }
 
