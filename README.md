@@ -10,15 +10,15 @@ Returns a function that takes two arguments:
 
 Example:
 
-```es6
+```javascript
 import snabbPik from 'snabbdom-pikaday'
 
-const form = () => h('form'
-, [
-    h('label', 'Start Date')
-  , snabbPik(
-      {attrs: {name: 'start'}}
-    , {minDate: new Date(), format: 'Do MMMM YYYY'}
+const form = () => h('form',
+  [
+    h('label', 'Start Date'),
+    snabbPik(
+      {attrs: {name: 'start'}},
+      {minDate: new Date(), format: 'Do MMMM YYYY'}
     )
   ]
 )
